@@ -16,7 +16,7 @@ Managed Core Data, built using Swift, without storyboard
 *Auto Layout
 -------------------------------------------------------------------
 
-UI元件及字型自動對應不同螢幕尺寸
+元件邊界及間距固定，各元件尺寸及字型隨不同螢幕尺寸自動調整尺寸
 
 ![image](https://github.com/Smith0314/Managed-Core-Data/blob/master/screenshot/screenshot.jpg)
 
@@ -25,6 +25,21 @@ UI元件及字型自動對應不同螢幕尺寸
         elementHeight = (halfHeight - 40) / 5
         elementWidth = (theWidth - 30) / 4
         fontSize = elementHeight * 0.4
+
+        fieldName.frame = CGRect(x: 20, y: elementHeight + 30, width: theWidth, height: elementHeight)
+        fieldEmail.frame = CGRect(x: 20, y: (elementHeight * 2) + 40, width: theWidth, height: elementHeight)
+        fieldPhone.frame = CGRect(x: 20, y: (elementHeight * 3) + 50, width: theWidth, height: elementHeight)
+
+        btnEdit.frame = CGRect(x: 20, y: (elementHeight * 4) + 60, width: elementWidth, height: elementHeight)
+        btnDelete.frame = CGRect(x: elementWidth + 30, y: (elementHeight * 4) + 60, width: elementWidth, height: elementHeight)
+        btnAdd.frame = CGRect(x: (elementWidth * 2) + 40, y: (elementHeight * 4) + 60, width: elementWidth, height: elementHeight)
+        btnSave.frame = CGRect(x: (elementWidth * 3) + 50, y: (elementHeight * 4) + 60, width: elementWidth, height: elementHeight)
+        
+       tableShow.frame = CGRect(x: 20, y: (view.bounds.height / 2) + 5, width: theWidth, height: halfHeight)
+
+       func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
+         return halfHeight / 5
+       }
 
 .
 
